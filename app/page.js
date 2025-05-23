@@ -15,15 +15,13 @@ import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 
 const LandingPage = () => {
-  const { isSignedIn, isLoaded } = useAuth();
+  const { isSignedIn } = useAuth();
   const [mounted, setMounted] = useState(false);
 
-  // Only show content after component is mounted to prevent hydration errors
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Show nothing until component is mounted
   if (!mounted) {
     return null;
   }
@@ -63,7 +61,7 @@ const LandingPage = () => {
                   <h3 className="text-xl font-semibold">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
-              </Card>
+              </Card> 
             ))}
           </div>
         </div>
